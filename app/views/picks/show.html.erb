@@ -5,9 +5,10 @@
 
   <div class="col-md-3">
     <p><b>Title: </b><%= @pick.title %></p>
-      <%= link_to 'Edit', edit_pick_path(@pick) %> |
-      <%= link_to 'Destroy', @pick, data: { confirm: 'Are you sure?' }, method: :delete %> |
-      <%= link_to 'Back', picks_path %>
-    </p>
+    <% if user_signed_in? && @pick.user == current_user %>
+      <%= link_to 'Edit', edit_pick_path(@pick) %>
+      <%= link_to 'Destroy', @pick, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <%= link_to 'Back', picks_path %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class PicksController < ApplicationController
-  before_action :set_pick, only: %i[ show edit update destroy ]
+  before_action :set_current_user_pick, only: %i[ show edit update destroy ]
 
   # GET /picks or /picks.json
   def index
@@ -8,11 +8,13 @@ class PicksController < ApplicationController
 
   # GET /picks/1 or /picks/1.json
   def show
+    @pick = Pick.find(params[:id])
   end
 
   # GET /picks/new
   def new
-    @pick = Pick.new
+    # @pick = Pick.new
+    @pick = current_user.picks.build
   end
 
   # GET /picks/1/edit
@@ -58,12 +60,12 @@ class PicksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_pick
-      @pick = Pick.find(params[:id])
+    def set_current_user_pick
+      @pick = current_user.picks.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def pick_params
-      params.require(:pick).permit(:title, :location, :picture)
+      params.require(:pick).permit(:title, :location, :picture, :user_id)
     end
 end

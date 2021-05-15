@@ -8,6 +8,7 @@
           <div class="pick-wrap">
             <%= link_to image_tag(pick.picture_url, width:'100%'), pick, class:'pick-img' %>
             <p><%= pick.title%></p>
+            <p><%= pick.user.name %></p>
           </div>
         </div>
       <% end %>
