@@ -1,31 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Picks</h1>
+<h1>Listing picks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @picks.in_groups_of(3) do |group| %>
+  <div class="row">
+      <% group.compact.each do |pick| %>
+        <div class="col-md-4 item-wrap">
+          <div class="pick-wrap">
+            <%= link_to image_tag(pick.picture_url, width:'100%'), pick, class:'pick-img' %>
+            <p><%= pick.title%></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @picks.each do |pick| %>
-      <tr>
-        <td><%= pick.location %></td>
-        <td><%= pick.description %></td>
-        <td><%= pick.picture %></td>
-        <td><%= link_to 'Show', pick %></td>
-        <td><%= link_to 'Edit', edit_pick_path(pick) %></td>
-        <td><%= link_to 'Destroy', pick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pick', new_pick_path %>
+<br />

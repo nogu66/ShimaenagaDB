@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@pick.picture_url, width: '100%') if @pick.picture.present? %>
+  </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @pick.location %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pick.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@pick.picture_url, width: 600) if @pick.picture.present? %>
-</p>
-
-<%= link_to 'Edit', edit_pick_path(@pick) %> |
-<%= link_to 'Back', picks_path %>
+  <div class="col-md-3">
+    <p><b>Title: </b><%= @pick.title %></p>
+      <%= link_to 'Edit', edit_pick_path(@pick) %> |
+      <%= link_to 'Destroy', @pick, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', picks_path %>
+    </p>
+  </div>
+</div>

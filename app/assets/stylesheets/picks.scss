@@ -1,3 +1,29 @@
 // Place all the styles related to the picks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.item-wrap {
+    padding: 2px;
+}
+
+.pick-wrap {
+    margin: 5px;
+    box-sizing: border-box;
+    border: 1px solid #666;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.pick-img img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+.pick-img:hover {
+    opacity: 0.6;
+}
+
+.item-wrap p {
+    padding: 10px 0 0 10px;
+}
