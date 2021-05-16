@@ -1,14 +1,18 @@
 
-<h1>Listing picks</h1>
+<h1>Picks</h1>
 
 <% @picks.in_groups_of(3) do |group| %>
   <div class="row">
       <% group.compact.each do |pick| %>
-        <div class="col-md-4 item-wrap">
+        <div class="col-xs-6 col-sm-3 col-md-3 card-wrap">
           <div class="pick-wrap">
-            <%= link_to image_tag(pick.picture_url, width:'100%'), pick, class:'pick-img' %>
-            <p><%= pick.title%></p>
-            <p><%= pick.user.name %></p>
+            <%= link_to pick do %>
+            <%= image_tag pick.picture_url, width:'100%', class:'pick-img' %>
+              <div class="text-wrap">
+                <p><%= pick.title%></p>
+                <p><%= pick.user.name %></p>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>

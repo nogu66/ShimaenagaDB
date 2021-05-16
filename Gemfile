@@ -13,6 +13,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'gravtastic'
+gem 'geocoder'
+gem 'dotenv-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'

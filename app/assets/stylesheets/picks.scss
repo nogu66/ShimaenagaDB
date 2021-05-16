@@ -1,29 +1,43 @@
 // Place all the styles related to the picks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.item-wrap {
+.card-wrap {
     padding: 2px;
-}
-
-.pick-wrap {
     margin: 5px;
     box-sizing: border-box;
-    border: 1px solid #666;
-    border-radius: 10px;
-    background-color: #fff;
 }
 
-.pick-img img {
+
+.pick-wrap {
+
+    border: 1px solid #666;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+
+.pick-wrap:hover {
+    opacity: 0.6;
+    box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-2px);
+}
+
+.pick-wrap:hover .text-wrap {
+    color: #666;
+}
+
+.pick-img {
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     text-align: center;
 }
 
-.pick-img:hover {
-    opacity: 0.6;
+.text-wrap{
+    padding: 10px 0 0 10px;
 }
 
-.item-wrap p {
-    padding: 10px 0 0 10px;
+#map {
+    height: 330px;
 }
